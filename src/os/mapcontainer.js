@@ -792,6 +792,7 @@ os.MapContainer.prototype.addHelpControls_ = function() {
   controls.addControl(zoomGrp, 3, 'Zoom In', null, ['Double Left Click']);
   controls.addControl(zoomGrp, 3, 'Zoom Out', [goog.events.KeyCodes.CTRL, '+'], ['Double Left Click']);
 
+
   controls.addControl(zoomGrp, 3, 'Large Zoom In/Out',
       [goog.events.KeyCodes.PAGE_UP, 'or', goog.events.KeyCodes.PAGE_DOWN]);
   controls.addControl(zoomGrp, 3, 'Zoom In/Out', null, ['+', '/', '=', 'or', '-', '/', '_']);

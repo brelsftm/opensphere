@@ -48,6 +48,9 @@ os.ui.ol.interaction.AbstractDrag.prototype.handleDownEvent = function(mapBrowse
     return false;
   }
 
+  /**
+   *  CMD + DBL CLICK gets into this if statement becuase it fulfills the condition even if I dont drag anything?
+   */
   if (mapBrowserEvent.pointerEvent.button === 0 && this.condition(mapBrowserEvent)) {
     this.begin(mapBrowserEvent);
     this.update(mapBrowserEvent);

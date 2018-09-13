@@ -232,6 +232,7 @@ os.ui.ol.interaction.AbstractDraw.prototype.begin = function(mapBrowserEvent) {
     this.keyHandler_ = new goog.events.KeyHandler(goog.dom.getDocument(), true);
     this.keyHandler_.listen(goog.events.KeyHandler.EventType.KEY, this.onKey, true, this);
     map.getView().setHint(ol.ViewHint.INTERACTING, 1);
+    console.log('$$$$$$$$$$$', map.getView().getHints()[ol.ViewHint.INTERACTING]);
     this.dispatchEvent(new os.ui.ol.draw.DrawEvent(os.ui.ol.draw.DrawEventType.DRAWSTART,
         mapBrowserEvent.coordinate));
   }

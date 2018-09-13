@@ -40,7 +40,7 @@ ol.interaction.DoubleClickZoom.handleEvent = function(mapBrowserEvent) {
       var camera = mapContainer.getWebGLCamera();
       if (camera) {
         var currentAltitude = camera.getAltitude();
-        var altitude = mapBrowserEvent.originalEvent.ctrlKey ? (currentAltitude * 2) : (currentAltitude / 2);
+        var altitude = mapBrowserEvent.originalEvent.metaKey ? (currentAltitude * 2) : (currentAltitude / 2);
 
         camera.flyTo(/** @type {!osx.map.FlyToOptions} */ ({
           center: anchor,
@@ -49,7 +49,7 @@ ol.interaction.DoubleClickZoom.handleEvent = function(mapBrowserEvent) {
         }));
       }
     } else {
-      var delta = mapBrowserEvent.originalEvent.ctrlKey ? -this.delta_ : this.delta_;
+      var delta = mapBrowserEvent.originalEvent.metaKey ? -this.delta_ : this.delta_;
       var view = mapBrowserEvent.map.getView();
       if (view) {
         ol.interaction.Interaction.zoomByDelta(view, delta, anchor, this.duration_);
@@ -59,6 +59,7 @@ ol.interaction.DoubleClickZoom.handleEvent = function(mapBrowserEvent) {
     mapBrowserEvent.preventDefault();
     stopEvent = true;
   }
+  console.log(mapBrowserEvent.map.getView().getHints()[ol.ViewHint.INTERACTING]);
   return !stopEvent;
 };
 
